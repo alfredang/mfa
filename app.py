@@ -166,7 +166,7 @@ def main():
         
         # Show first few rows
         with st.expander("View Raw Data"):
-            st.dataframe(df.head(10), width='stretch')
+            st.dataframe(df.head(10), use_container_width=True)
         
         # Preprocess data
         st.header("⚙️ Data Preprocessing")
@@ -177,7 +177,7 @@ def main():
         st.write(", ".join(feature_names))
         
         with st.expander("View Preprocessed Data"):
-            st.dataframe(df_numeric.head(10), width='stretch')
+            st.dataframe(df_numeric.head(10), use_container_width=True)
         
         # Factor Analysis Parameters
         st.header("🔧 Factor Analysis Settings")
@@ -224,7 +224,7 @@ def main():
                         'Variance (%)': np.round(explained_variance, 2),
                         'Cumulative Variance (%)': np.round(cumulative_variance, 2)
                     })
-                    st.dataframe(variance_df, width='stretch')
+                    st.dataframe(variance_df, use_container_width=True)
                     
                     # Visualizations
                     st.header("📈 Visualizations")
@@ -315,3 +315,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+    st.markdown("---")
+    st.markdown(
+        '<div style="text-align: center; padding: 10px; color: #666;">'
+        'Powered by <a href="https://www.tertiarycourses.com.sg" target="_blank">'
+        'Tertiary Infotech Academy Pte Ltd</a>'
+        '</div>',
+        unsafe_allow_html=True
+    )
